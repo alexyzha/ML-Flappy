@@ -2,5 +2,5 @@
 
 **Over 10,000 columns passed:**
 
-![vid](https://github.com/alexyzha/ML-Flappy/blob/main/visuals/10k.mov)
+[![thumbnail](visuals/thumbnail.png)](visuals/10k.mp4)
 
