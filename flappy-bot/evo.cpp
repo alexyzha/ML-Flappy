@@ -17,7 +17,9 @@ void Evolver::simulate(int generations, std::string f_path) {
         std::cout << "Running generation: " << i << std::endl;
         Game* cur = new Game(c_population,speed,seed+i);
         //  Watch every 10
-        !(i%1) ? cur->run_vis() : cur->run_game();
+        //  !(i%10) ? cur->run_vis() : cur->run_game();
+        //  Watch every:
+        cur->run_vis();
         //  Print diagnostics
         cur->diagnostics();
         int passed = cur->pillars_passed();
