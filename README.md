@@ -2,5 +2,5 @@
 
 **Over 10,000 columns passed:**
 
-[![thumbnail](visuals/thumbnail.png)](visuals/10k.mp4)
+[![thumbnail](visuals/thumbnail.png)](https://youtu.be/TEs496ZzPow)
 
