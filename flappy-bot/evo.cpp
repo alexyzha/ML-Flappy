@@ -39,7 +39,7 @@ void Evolver::simulate(int generations, std::string f_path) {
         //  Top 10% live (10% new population)
         for(int i = 0; i < POP_SIZE/10; ++i)
             n_population.push_back(c_population[i]);
-        //  Selectively breed top 20% with 14% mutation rate (40% new population)
+        //  Selectively breed top 20% with 20% mutation rate (40% new population)
         for(int i = 0; i < POP_SIZE/10*4; ++i) {
             int a = rand() % (POP_SIZE/10*2);
             int b = rand() % (POP_SIZE/10*2);
