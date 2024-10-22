@@ -1,10 +1,10 @@
-# Using a genetic algorithm to train neural networks to play flappy bird:
+# Genetic Algorithm Training Neural Networks to Play Flappy Bird
 
 **Over 10,000 columns passed (click for video):**
 
 [![thumbnail](visuals/thumbnail.png)](https://youtu.be/TEs496ZzPow)
 
-# Overall program structure:
+# Overall Program Structure:
 
 For both the training phase, the overall program is split into 3 parts. The testing phase only has parts 1 and 2 (below):
 
@@ -12,7 +12,7 @@ For both the training phase, the overall program is split into 3 parts. The test
 2. The game itself (flappy bird)
 3. The genetic algorithm, which is used to evolve birds
 
-# Neural network structure:
+# Neural Network Structure:
 
 Since flappy bird is a pretty simple game, a single hidden layer is good enough. The neural networks I used take in `5` inputs: `bird y-velocity`, `bird y-position`, `next pillar pair x-position`, and finally `next pillar pair top/bottom y-positions`. Since the bird stays in place (constant bird x-value), there isn't a need to use that as an input. The output at a specific state is whether or not the bird should flap, so we have a boolean output. Therefore:
 
@@ -26,7 +26,7 @@ A `Bird` struct contains weights and a variable `fitness` (in training phase, `a
 
 To flap or not to flap? 💀
 
-# Genetic algorithm structure:
+# Genetic Algorithm Structure:
 
 Each bird has `18` different weights. There are no biases. Therefore, a bird's chromosome consists of `18` floats. These are initially randomly generated using a normal distribution with `mean = 0`, `stdev = 0.1f`. Subsequent singleton mutations are also generated using this distribution. The population size used was `30`, and the birds were trained over `50` generations.
 
@@ -38,7 +38,7 @@ Generally, after around generation `20`, at least `1` bird was able to 'pass' th
 
 The simulation was played at a speed of `delta time * 3.0f`, which is about `1.5f` times faster than the video demo, and `3.0f` times faster than the base game. The birds are able to play the game accurately at speeds up to `5.0f` (tested), but everything above `5.0f` times faster than the base game is untested. At the end of `50` generations, the genes of all birds are saved in an output file to be used in the testing phase.
 
-# Game structure:
+# Game Structure:
 
 It's just a no-graphics version of flappy bird. The bird and pipes all have square hitboxs. The opening distance between pipes is fixed, but the opening location is not. The distance between pipes can also vary. Pipes are generated dynamically using c++'s `rand()`.
 
@@ -51,9 +51,9 @@ The main game loop is as follows:
 5. `move_pillars(d_time)` moves all pillars based on delta time
 6. `kill_birds()` kills any birds if they are off screen or if they are touching a pillar
 
-# Testing phase:
+# Testing Phase:
 
-The testing phase just runs a slightly modified version of the game with a slightly modified version of `Bird` (`float fitness` -> `bool alive`). The `evolution handler` is not used, and lines showing "bird vision" can be seen. From the video, this is what each line color means:
+`bot-test` is the folder containing the `makefile` for compiling the final test version. `./test` runs the final test version. The test parameters (`speed`, `number of birds` range = [1,3], and `seed`) can all be tweaked with in `bot-test/main.cpp`. The testing phase just runs a slightly modified version of the game with a slightly modified version of `Bird` (`float fitness` -> `bool alive`). The `evolution handler` is not used, and lines showing "bird vision" can be seen. From the video, this is what each line color means:
 
 - `Green`: current y-velocity
 - `Blue`: distance to bottom pillar
