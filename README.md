@@ -28,7 +28,7 @@ To flap or not to flap? 💀
 
 # Genetic Algorithm Structure:
 
-Each bird has `18` different weights. There are no biases. Therefore, a bird's chromosome consists of `18` floats. These are initially randomly generated using a normal distribution with `mean = 0`, `stdev = 0.1f`. Subsequent singleton mutations are also generated using this distribution. The population size used was `30`, and the birds were trained over `50` generations.
+Each bird has `18` different weights. There are no biases. Therefore, a bird's genome consists of `18` floats. These are initially randomly generated using a normal distribution with `mean = 0`, `stdev = 0.1f`. Subsequent chromosome mutations are also generated using this distribution. The population size used was `30`, and the birds were trained over `50` generations.
 
 During the training phase, in a generation of birds, the `evolution handler` runs the game until all the birds are dead, or until a certain threshold (`~200` pillars passed) is reached. Each bird is assigned a fitness at the time of death or at the game's conclusion. Then, all birds are sorted by `highest fitness`. Here, fitness is analagous with "time lived."
 
@@ -58,3 +58,15 @@ The main game loop is as follows:
 - `Green`: current y-velocity
 - `Blue`: distance to bottom pillar
 - `Red`: distance to top pillar
+
+# Gallery:
+
+**Results of example runs:**
+
+![runs](visuals/runs.png)
+
+**An example genome (18 floats):**
+
+- In the code, this is represented as `chromosome = snp * 18` is used, but the idea is the same.
+
+![runs](visuals/examplegenome.png)
