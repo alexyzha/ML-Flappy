@@ -67,6 +67,7 @@ The main game loop is as follows:
 
 **An example genome (18 floats):**
 
-- In the code, this is represented as `chromosome = snp * 18` is used, but the idea is the same.
+- In the code, this is represented as `chromosome = snp * 18` instead of `genome = chromosome * 18`, but the idea is the same
+- The example below is a fully trained bird
 
 ![runs](visuals/examplegenome.png)
